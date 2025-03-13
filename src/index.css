@@ -1,0 +1,566 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------- defualt custamize start ------------------------ */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-bottom: 0;
+}
+
+button {
+  border: none;
+}
+
+body {
+  overflow: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(green, rgb(7, 230, 7));
+    border-radius: 30px;
+  }
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#07e607, green);
+  transition: all ease 0.2s;
+}
+
+:root {
+  --color-01: #ffffff !important;
+  --color-02: #000000 !important;
+  --color-03: #4b9a35 !important;
+  --color-04: #71c800 !important;
+  --color-05: #c6c6c6 !important;
+  --padding-px: 0 25px !important;
+  --padding-px-01: 5vw !important;
+  --leter-space-01: 0.1vw !important;
+  --font-size-01: 2vmin !important;
+}
+html {
+  font-size: 80%;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-pagination-bullet {
+  background-color: var(--color-04);
+}
+/* ------------------------- defualt custamize end ------------------------ */
+
+/* ------------------------- navbar design start ------------------------ */
+
+.navBox {
+  background-color: var(--color-02);
+  color: var(--color-01);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: clamp(40px, 90vw, 60px);
+  padding: 2vw 25px 2vw 0;
+}
+.containerNav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.LogoBox {
+  width: 200px;
+  height: clamp(40px, 90vw, 60px);
+  background-color: var(--color-01);
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.LogoBoxImg {
+  height: 80%;
+  object-fit: contain;
+  padding-left: 25px;
+}
+.navListBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+.navList {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: var(--leter-space-01);
+  font-size: 2vmin;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--color-03);
+    transition: all ease 0.2s;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    /* width: 50%; */
+    height: 2px;
+    background-color: var(--color-04);
+    opacity: 0;
+  }
+}
+.navList:hover::before {
+  animation: linerAnimation1 0.5s linear;
+  opacity: 1;
+  transition: all ease 0.2s;
+  width: 50%;
+}
+@keyframes linerAnimation1 {
+  0% {
+    opacity: 1;
+    width: 0;
+  }
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+.buttonBox {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-01);
+  border-radius: 50px;
+}
+.LoginBtnTop {
+  background-color: var(--color-01);
+  color: var(--color-03);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2vmin;
+  width: 100px;
+  height: auto;
+  padding: 12px 18px;
+  border-radius: 50px;
+}
+.RegisterBtn {
+  background-color: var(--color-03);
+  color: var(--color-01);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2vmin;
+  width: 100px;
+  height: auto;
+  padding: 12px 18px;
+  border-radius: 50px;
+}
+/* ------------------------- navbar design end ------------------------ */
+
+/* carosel top home start  */
+.CaroselBox {
+  width: 100%;
+  height: calc(100vh - clamp(40px, 90vw, 60px));
+  position: relative;
+}
+.swiperImg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiperSlideImgColor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  z-index: 5;
+}
+.bgGradintCaro::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.416), rgba(0, 0, 0, 0.86));
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.carouselBoxContent {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 90%;
+  height: calc(90vh - clamp(40px, 90vw, 60px));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+}
+.leftCaroContent {
+  /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+/* .rightCaroContent {
+  background-color: rgb(13, 0, 128);
+} */
+.leftCaroContentText1 {
+  font-size: 5vmax;
+  line-height: 5vw;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--color-01);
+}
+.leftCaroContentText3 {
+  color: var(--color-04);
+}
+.leftCaroContentText2 {
+  margin: 2vw 0;
+  color: var(--color-05);
+  font-size: 12px;
+}
+.rightCaroContent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
+  padding: 5vw;
+}
+.SerchBoxHomeCaro {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-01);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.8vw;
+}
+.SerchBoxHomeCaroInput {
+  width: 100%;
+  height: 100%;
+  padding: 3vmin 4vmin;
+  border-radius: 0.8vw;
+  &:focus {
+    outline: none !important;
+  }
+}
+.SerchBoxHomeCaroBtn {
+  background-color: var(--color-03);
+  color: var(--color-01);
+  padding: 3vmin;
+  height: 100%;
+  width: 100px;
+  border-radius: 0.8vw;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* carosel top home start  */
+
+/* sections head topic start  */
+.HedAllSection {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10vmin;
+}
+.HeadTopicBox {
+  position: relative;
+  width: clamp(300px, 90vw, 450px);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    background-color: var(--color-04);
+    z-index: 3;
+    animation: liner2 2s infinite;
+  }
+}
+@keyframes liner2 {
+  0% {
+    width: 0%;
+    opacity: 0.5;
+  }
+  50% {
+    width: 50%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.HeadTopicText1 {
+  color: var(--color-02);
+  font-size: 32px;
+  font-weight: 800;
+  text-transform: capitalize;
+  letter-spacing: var(--leter-space-01);
+}
+.HeadTopicText2 {
+  color: var(--color-05);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: var(--leter-space-01);
+  line-height: 0.5vw;
+}
+.HeadTopicText3 {
+  color: var(--color-04);
+}
+/* sections head topic end  */
+
+/* ----------------------- latest calss section start ----------------------- */
+.ClaseSectionBoxHome {
+  padding: 0 var(--padding-px-01);
+  padding-top: 7vw;
+  padding-bottom: 4vw;
+}
+.ClasesBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+}
+.mySwiper2 {
+  min-height: 340px;
+}
+.ClasesCard:hover .ClasesCardImg {
+  transform: scale(1.1);
+  transition: all ease 2s;
+}
+.ClasesCard {
+  &:hover {
+    filter: drop-shadow(2px 2px 2px var(--color-04));
+    transition: all ease 0.5s;
+  }
+}
+.ClasesCardImgBox {
+  height: 220px;
+  overflow: hidden;
+}
+.ClasesCardImg {
+  height: 100%;
+  object-fit: cover;
+}
+.classCrtBtn {
+  background-color: var(--color-04);
+}
+.showAllBtnClaeses {
+  width: 300px;
+  height: auto;
+  padding: 12px 18px;
+  color: var(--color-03);
+  background-color: transparent;
+  border: 1px solid var(--color-04);
+  border-radius: 0.8vw;
+  font-weight: 600;
+  letter-spacing: var(--leter-space-01);
+  &:hover {
+    color: var(--color-01);
+    background-color: var(--color-03);
+    transition: all ease 0.8s;
+  }
+}
+/* ----------------------- latest calss section end ----------------------- */
+
+/* ------------------------- trending institute start ------------------------- */
+.bestTrendingInstitute {
+  padding: 0 var(--padding-px-01);
+  padding-bottom: 4vw;
+}
+/* ------------------------- trending institute start ------------------------- */
+
+/* ------------------------- claseses cateory start ------------------------- */
+.categoryClasess {
+  padding: 0 var(--padding-px-01);
+  padding-bottom: 4vw;
+}
+.categoryClasess {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.categoryClasessBox {
+  width: clamp(600px, 90vw, 800px);
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5vw;
+}
+.categoryClasesesCard {
+  background-color: whitesmoke;
+  padding: 30px 15px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid var(--color-04);
+  border-radius: 0.8vw;
+  &:hover {
+    transform: scale(1.1);
+    transition: all ease 0.8s;
+    background-color: var(--color-03);
+    color: var(--color-01);
+    .categoryClasesesCardText {
+      color: var(--color-01);
+    }
+  }
+}
+.categoryClasesesCardText {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-03);
+}
+.categoryClasesesCardBtn {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--color-05);
+}
+/* ------------------------- claseses cateory end ------------------------- */
+
+/* -------------------------- footer section start -------------------------- */
+.footer {
+  width: 100%;
+  height: auto;
+  padding: 4vw var(--padding-px-01);
+  background-color: var(--color-02);
+}
+.footerBody {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr;
+  gap: 4vmax;
+}
+.footerSec {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.footerText1 {
+  color: var(--color-01);
+}
+.footerLinksText {
+  color: var(--color-01);
+}
+.footerLinksScoicalLink {
+  color: var(--color-01);
+}
+.emengencyCallIcon {
+  font-size: 35px;
+}
+.emengencyCallText {
+  font-size: 20px;
+}
+.footerLinksContainer {
+  display: flex;
+  flex-direction: column;
+}
+.footerLinksSocial {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1vw;
+  align-items: center;
+  margin-top: 2vw;
+}
+.footerLinksScoicalLink {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1vw;
+  background-color: var(--color-01);
+  color: var(--color-03);
+}
+.footerLinksScoicalIcon {
+  font-size: 19px;
+}
+.footerTextLinksHead {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-04);
+}
+.footerLinksBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8vw;
+  margin-top: 2vw;
+}
+
+.footerLinksContainer {
+  margin-top: 2vw;
+}
+.footerLogo {
+  height: clamp(100px, 90vw, 140px);
+  width: clamp(100px, 90vw, 140px);
+  margin-bottom: 4vmin;
+}
+.secondFooter {
+  background-color: var(--color-04);
+  text-align: end;
+  padding: 1vw var(--padding-px-01);
+}
+/* --------------------------- footer section end --------------------------- */
